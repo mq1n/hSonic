@@ -81,6 +81,9 @@ HANDLE GetSonicHandle(const std::string & szWatchedProcessName, const std::strin
 		}
 	}
 
+	if (!bAssignedToAnyProcess)
+		goto clean;
+
 	/* Handle-receiver thread */
 	handleReceiver = std::thread([&]()
 	{
